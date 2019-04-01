@@ -98,8 +98,30 @@ function printQuote() {
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+document.getElementById('loadQuote').addEventListener("click", changeColor, false);
 
-// Changing color when new quote is selected or after 15 seconds
+// Need to account for if button was hit first
+window.addEventListener("load", function() {
+    setInterval(function () {
+    changeColor();
+    printQuote();
+}, 15000); 
+});
+
+/*
+    Function to change color when new quote is selected 
+    Note: Had to reference stackoverflow for starting point
+*/
+
+var i = 0;
+function changeColor() {
+  var htmlID = document.getElementById("canvas");
+  var buttonID = document.getElementById("loadQuote");
+  var colors = ["brown", "blue", "gray", "black", "green"];
+  htmlID.style.backgroundColor = colors[i];
+  buttonID.style.backgroundColor = colors[i];
+  i = (i + 1) % colors.length;
+}
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
