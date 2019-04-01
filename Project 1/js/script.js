@@ -73,14 +73,15 @@ function printQuote() {
     var quoteIndex = getRandomQuote();
     var HTML = '';
     
-    HTML += '<p class "quotes">' + quotes[quoteIndex].quote + '</p>';
-    HTML += '<p class "source">' + quotes[quoteIndex].source + '</p>';
+    HTML += '<p class "quote">' + quotes[quoteIndex].quote + '</p>';
     
-    if(quoteIndex.citation) {
-       HTML += '<span class="citation">' + quotes[quoteIndex].citation + '</span';
+    HTML += '<p class "source">' + quotes[quoteIndex].source;
+    
+    if(quotes[quoteIndex].citation) {
+       HTML += '<span class="citation">' + quotes[quoteIndex].citation + '</span>';
        }
-    if(quoteIndex.year) {
-       HTML += '<span class="year">' + quotes[quoteIndex].year + '</span';
+    if(quotes[quoteIndex].year) {
+       HTML += '<span class="year">' + quotes[quoteIndex].year + '</span>';
        }
     
     HTML += '</p>';
